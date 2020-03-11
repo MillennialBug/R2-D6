@@ -2,7 +2,6 @@ from discord.ext import commands
 import pygsheets
 from discord import Embed, Colour
 import sqlite3
-from sql_stmts import c_char_tbl
 
 
 class CharSheets(commands.Cog):
@@ -10,17 +9,12 @@ class CharSheets(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-        self.conn = None
         try:
             self.conn = sqlite3.connect('swrpg.db')
         except sqlite3.Error as e:
             print(e)
 
         self.cur = self.conn.cursor()
-        self.create_tables()
-        
-    def create_tables(self):
-        self.cur.execute(c_char_tbl)
 
     # def add_char(self, ):
     # Add character details to the db

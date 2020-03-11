@@ -1,12 +1,31 @@
-c_char_tbl = """CREATE TABLE IF NOT EXISTS characters 
+table_creates = ["""CREATE TABLE IF NOT EXISTS users
+                 (user_id INTEGER PRIMARY KEY,
+                  name TEXT NOT NULL);""",
+                 """CREATE TABLE IF NOT EXISTS attributes
+                 (attribute_id INTEGER PRIMARY KEY,
+                  name TEXT NOT NULL,
+                  short_name TEXT NOT NULL,
+                  descr NOT NULL);""",
+                 """CREATE TABLE IF NOT EXISTS skills
+                 (skill_id INTEGER PRIMARY KEY,
+                  name TEXT NOT NULL,
+                  short_name TEXT NOT NULL,
+                  attribute_id INTEGER NOT NULL,
+                  time TEXT NOT NULL,
+                  short_time TEXT NOT NULL,
+                  specialise TEXT NOT NULL,
+                  descr TEXT NOT NULL);""",
+                 """CREATE TABLE IF NOT EXISTS species
+                   (species_id INTEGER PRIMARY KEY,
+                    name TEXT NOT NULL,
+                    descr TEXT NOT NULL);""",
+                 """CREATE TABLE IF NOT EXISTS characters 
                 (char_id INTEGER PRIMARY KEY,
-                 guild_id INTEGER NOT NULL,
-                 user_id INTEGER NOT NULL,
                  sheet_id TEXT NOT NULL,
                  portrait_url TEXT,
                  name TEXT NOT NULL,
                  archetype TEXT NOT NULL,
-                 species TEXT NOT NULL,
+                 species_id INTEGER NOT NULL,
                  gender	TEXT,
                  height TEXT,
                  weight TEXT,
@@ -57,4 +76,5 @@ c_char_tbl = """CREATE TABLE IF NOT EXISTS characters
                  stunned TEXT, 
                  wounds TEXT, 
                  incapacitated TEXT, 
-                 mortal_wound TEXT)"""
+                 mortal_wound TEXT);"""]
+table_insert = 'INSERT INTO {} VALUES {};'
