@@ -128,5 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Ignore auth file
-auth.py
+# Ignore auth files
+/auth.py
+/client_secret.json
+/service_account_credentials.json
+/sheets.googleapis.com-python.json
+/swrpg.db
+/swrpg.db-journal

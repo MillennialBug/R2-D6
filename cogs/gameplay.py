@@ -16,14 +16,16 @@ class Gameplay(commands.Cog):
         wild = 6
         roll_str = mod_str = wild_str = ''
 
-        if search('^\d*\+\d*$', dnm):
-            parts = split('\+', dnm)
+        # Decode the input. Expects either an integer or 2 integers separated by a +
+        if search(r'^\d*\+\d*$', dnm):
+            parts = split(r'\+', dnm)
             if len(parts) == 2:
                 num_dice = int(parts[0])
                 mod = int(parts[1])
         else:
             num_dice = int(dnm)
 
+        # Roll regular dice. This is the total number of dice - 1.
         for i in range(num_dice - 1):
             temp = randint(1, 6)
             total += temp
@@ -35,10 +37,16 @@ class Gameplay(commands.Cog):
             if i < num_dice - 2:
                 roll_str += ', '
 
-            if mod > 0:
-                mod_str = f' + {mod}'
-                total += mod
+        # Add the modifier to the total if there is one.
+        if mod > 0:
+            mod_str = f'+ {mod}'
+            total += mod
 
+        '''
+            Roll the Wild Die at least once. 
+            When the die lands on 6 a re-roll is permitted and the total accumulates.
+            If the die lands on 1 there is a chance for a negative consequence for the player.
+        '''
         while wild == 6:
             wild = randint(1, 6)
             total += wild
@@ -47,8 +55,13 @@ class Gameplay(commands.Cog):
             else:
                 wild_str += f'{wild}'
 
-        await ctx.send(f'<@{ctx.author.id}> {num_dice}🎲{mod_str}\n **Dice:** ({roll_str})\n **Wild'
-                       f' Die:** ({wild_str})\n **Total:** {total}')
+        # Create and send the response message.
+        await ctx.send(f'<@{ctx.author.id}> {num_dice} 🎲 {mod_str}\n '
+                       f'**Dice:** ({roll_str})\n '
+                       f'**Wild Die:** ({wild_str})\n '
+                       f'**Total:** {total}')
+
+        # Delete the request message to keep chat clean.
         await ctx.message.delete()
 
 
