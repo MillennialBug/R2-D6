@@ -20,9 +20,10 @@ class Initialise(commands.Cog):
         self.insert_data()
 
     def clear_db(self):
-        tables = ('users', 'attributes', 'skills', 'species', 'characters')
+        tables = ('users', 'skills', 'species', 'chars', 'active_chars', 'char_skills', 'characters')
         for table in tables:
-            self.cur.execute(f'DROP TABLE {table};')
+            self.cur.execute(f'DROP TABLE IF EXISTS {table};')
+            self.conn.commit()
 
     def create_tables(self):
         for stmt in table_creates:
@@ -30,8 +31,12 @@ class Initialise(commands.Cog):
         self.conn.commit()
 
     def insert_data(self):
-        for values in dict.attributes.values():
-            self.cur.execute(table_insert.format('attributes', values))
+        for values in dict.skills.values():
+            self.cur.execute(table_insert.format('skills', values))
+        self.conn.commit()
+
+        for values in dict.species.values():
+            self.cur.execute(table_insert.format('species', values))
         self.conn.commit()
 
 

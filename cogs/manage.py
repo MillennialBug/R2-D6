@@ -21,7 +21,7 @@ class Manage(commands.Cog):
                 print("EnvironmentError")
                 self.bot.clear()
         else:
-            await ctx.send("You're not my real dad!")
+            await ctx.send(content="You're not my real dad!", delete_after=10.0)
 
 
 def setup(bot):

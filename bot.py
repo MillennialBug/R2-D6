@@ -20,6 +20,7 @@ async def unload(ctx, ext):
 async def reload(ctx, ext):
     bot.unload_extension(f'cogs.{ext}')
     bot.load_extension(f'cogs.{ext}')
+    await ctx.message.delete()
 
 
 for filename in listdir('./cogs'):
