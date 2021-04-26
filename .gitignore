@@ -135,3 +135,5 @@ dmypy.json
 /sheets.googleapis.com-python.json
 /swrpg.db
 /swrpg.db-journal
+/--client_secret.json
+/service-account-credentials.json

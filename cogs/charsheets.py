@@ -55,7 +55,7 @@ class CharSheets(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         seed(datetime.now())
-        self.gs = pygsheets.authorize()
+        self.gs = pygsheets.authorize(service_account_file='service-account-credentials.json')
 
         try:
             self.conn = sqlite3.connect('swrpg.db')

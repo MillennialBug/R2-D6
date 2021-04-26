@@ -18,7 +18,7 @@ class Misc(commands.Cog):
         if self.bot.user.mentioned_in(message) and message.mention_everyone is False:
             if ':pray:' in message.content.lower() or '\u1F64F' in message.content or '🙏' in message.content:
                 responses = [f"Prayers won't help you here, <@{message.author.id}>",
-                             f"Praying? Really? A man of your talents, <@{message.author.id}>?",
+                             f"Praying? Really? A person of your talents, <@{message.author.id}>?",
                              f"I find your lack of faith disturbing, <@{message.author.id}>."]
                 await message.channel.send(choice(responses))
 

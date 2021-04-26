@@ -11,12 +11,12 @@ class Welcome(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        print(f'{member} has joined a server.')
+        print(f'{member} has joined the server.')
         user_name = member.name
         welcome_msg = [f"Help me, {user_name}. You're my only hope.",
                        f"{user_name}, the force will be with you. Always.",
                        f"Why, you stuck-up, half-witted, scruffy-looking {user_name}.",
-                       f"\"I'm a simple man trying to make my way in the universe\" - {user_name}.",
+                       f"\"I'm a simple person, trying to make my way in the universe\" - {user_name}.",
                        f"What if I told you the Republic was under the control of {user_name}.",
                        f"You were my brother, {user_name}. I loved you.",
                        f"{user_name}, we're home.",
@@ -29,8 +29,8 @@ class Welcome(commands.Cog):
                        f"Hello there.",
                        f"There force is strong with this one.",
                        f"Great, {user_name}. Don't get cocky!",
-                       f"Hello. I don't believe we have been introduced. {user_name}? "
-                       f"A pleasure to meet you. I am R2-D6, Human-Cyborg Relations.",
+                       f"Hello. I don't believe we have been introduced, {user_name}? "
+                       f"A pleasure to meet you. I am R2-D6, Human-Discord Relations.",
                        f"{user_name}. Now that's a name I've not heard in a long time. A long time.",
                        f"{user_name}, I don't want to lose you to the Emperor the same way I lost Vader.",
                        f"{user_name}, you're breaking my heart! And you're going down a path I cannot follow.",
@@ -39,11 +39,11 @@ class Welcome(commands.Cog):
                        f"I suggest a new strategy, {user_name}. Let the Wookiee win.",
                        f"{user_name}, we stand here amongst my achievements, not yours!",
                        f"Great shot {user_name}, that was one in a million.",
-                       f"{user_name}'s not a system, he's a man!",
+                       f"{user_name}'s not a system, they're a person!",
                        f"{user_name}, you're shorter than I expected.",
                        f"Be careful not to choke on your aspirations, {user_name}.",
                        f"Hmmm. Lost a planet, Master {user_name} has. How embarrassing."]
-        channel = self.bot.get_channel(685140813700661340)
+        channel = self.bot.get_channel(835883702562062396)
         await channel.send(f"{user_name} joined.\n{choice(welcome_msg)}")
 
 
