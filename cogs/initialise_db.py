@@ -15,12 +15,13 @@ class Initialise(commands.Cog):
             print(e)
 
         self.cur = self.conn.cursor()
-        self.clear_db()  # TEST ONLY!!!
-        self.create_tables()
-        self.insert_data()
+        # self.clear_db()  # TEST ONLY!!!
+        # self.create_tables()
+        # self.insert_data()
 
     def clear_db(self):
         tables = ('users', 'skills', 'species', 'chars', 'active_chars', 'char_skills', 'characters')
+        # TODO: Confirm with user.
         for table in tables:
             self.cur.execute(f'DROP TABLE IF EXISTS {table};')
             self.conn.commit()

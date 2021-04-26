@@ -71,5 +71,9 @@ table_creates = ["""CREATE TABLE IF NOT EXISTS skills
                  """CREATE TABLE IF NOT EXISTS npcs
                  (name TEXT PRIMARY KEY,
                   avatar TEXT,
-                  char_id INTEGER)"""]
+                  char_id INTEGER)""",
+                 """CREATE TABLE IF NOT EXISTS dnd_npcs
+                 (name TEXT PRIMARY KEY,
+                  avatar TEXT)"""
+                 ]
 table_insert = 'INSERT INTO {} VALUES {};'
