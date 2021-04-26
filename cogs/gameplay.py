@@ -282,7 +282,8 @@ class Gameplay(commands.Cog):
 
     @commands.command(aliases=['dm'])
     async def gm(self, ctx, *args):
-        if not check_for_role(ctx.author.roles, 691606404615897098):
+        if not check_for_role(ctx.author.roles, 691606404615897098) or \
+                not (check_for_role(ctx.author.roles, 836213625974816770)):
             await ctx.message.delete()
             await ctx.send(content='Sorry, you are not marked as a GM.', delete_after=5.00)
             return
@@ -328,7 +329,8 @@ class Gameplay(commands.Cog):
     async def say(self, ctx, name, *, args):
         await ctx.message.delete()
 
-        if not check_for_role(ctx.author.roles, 691606404615897098):
+        if not check_for_role(ctx.author.roles, 691606404615897098) or \
+                not (check_for_role(ctx.author.roles, 836213625974816770)):
             await ctx.send(content='Sorry, you are not marked as a GM.', delete_after=5.00)
             return
 
