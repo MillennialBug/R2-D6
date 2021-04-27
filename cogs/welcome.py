@@ -9,7 +9,7 @@ class Welcome(commands.Cog):
         self.bot = bot
         seed(datetime.now())
 
-    @client.event()
+    @bot.event()
     async def on_member_join(self, member):
         print(f'{member} has joined the server.')
         user_name = member.name
