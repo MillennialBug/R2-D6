@@ -1,8 +1,11 @@
 from discord.ext import commands
+from discord import Intents
 from auth import discord_token
 from os import listdir
 
-bot = commands.Bot(command_prefix='.')
+intents = Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='.', intents=intents)
 bot.remove_command('help')
 
 
