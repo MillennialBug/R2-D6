@@ -152,7 +152,7 @@ class Gameplay(commands.Cog):
         if system == 'SWD6':
             self.cur.execute('SELECT char_id, avatar FROM npcs WHERE name=?', (name,))
         elif system == 'DND':
-            self.cur.execute('SELECT char_id, avatar FROM dnd_npcs WHERE name=?', (name,))
+            self.cur.execute('SELECT 0, avatar, fullname FROM dnd_npcs WHERE name=?', (name,))
         return self.cur.fetchone()
 
     async def get_db_skill(self, ctx, skill):
@@ -337,10 +337,10 @@ class Gameplay(commands.Cog):
             await ctx.send(content='Sorry, you are not marked as a GM.', delete_after=5.00)
             return
 
-        char = self.get_npc(name, 'SWD6')
+        char = self.get_npc(name, 'DND')
         if char is not None:
             webhook = self.webhooks[ctx.message.channel.id]
-            webhook.send(username=f'{name}', content=args,
+            webhook.send(username=f'{char[2]}', content=args,
                          avatar_url=char[1])
 
 
