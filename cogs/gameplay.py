@@ -146,6 +146,14 @@ class Gameplay(commands.Cog):
                          685777376549928962: Webhook.partial(692351160572444683,
                                                              "jb2uuDdfktJ6uXetfo3KHzWL2C5XhTpOic"
                                                              "DFieoCPL0D1-jUNxSjv5YgfsExQvegayE6",
+                                                             adapter=RequestsWebhookAdapter()),
+                         836213087107416085: Webhook.partial(839225479055671306,
+                                                             "1XWjWi-ZY91W7aXKabqEj5DzSF1XR1KSb7"
+                                                             "QSrahSmlfmXc0ssYdbIonQUv1dUwV_Yx2H",
+                                                             adapter=RequestsWebhookAdapter()),
+                         837331470288289842: Webhook.partial(839234618099236926,
+                                                             "FpYHA1FqZPh61IcZQe6pTqEsf_c15dKKll"
+                                                             "lHvq9LN-9XJA7HY4Q9lsvz7pWq0HQZ4LC-",
                                                              adapter=RequestsWebhookAdapter())}
 
     def get_npc(self, name, system):
