@@ -36,4 +36,14 @@ async def ping(ctx):
     await ctx.send(f'Pong! Latency is {round(bot.latency * 1000)}ms.')
 
 
+@bot.event()
+async def on_message(msg):
+    author = str(msg.author)
+    content = str(msg.content)
+    time = str(msg.created_at)
+    if content.startswith("!") or content.startswith("."):
+        channel = bot.get_channel(841259291117748264)
+        await channel.send(f'{author} used command {content} at {time}.')
+
+
 bot.run(discord_token)
